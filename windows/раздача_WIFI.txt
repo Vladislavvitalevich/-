@@ -1,0 +1,8 @@
+1. Разрешить режим точки доступа: 
+netsh wlan set hostednetwork mode=allow 
+2. задать имя сети (любая разумная строка вместо yourwifi) и пароль (вместо yourpassword) 
+netsh wlan set hostednetwork ssid=yourwifi key=yourpassword 
+3. Запустить точку доступа 
+netsh wlan start hostednetwork 
+4. Выключить точку доступа 
+netsh wlan start hostednetwork 

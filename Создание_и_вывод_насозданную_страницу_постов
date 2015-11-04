@@ -1,0 +1,37 @@
+пример кода страниц
+<?php
+/*
+ * Template Name: post123
+*/
+
+get_header(); ?>
+
+<div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+
+        <?php
+        $my_posts = new WP_Query;
+        $myposts = $my_posts->query( array(
+            'post_type' => 'post'
+        ) );
+        foreach( $myposts as $pst ){
+            echo '<h3>'.$pst->post_title.'</h3>';
+            echo $pst->post_content;
+        }
+        wp_reset_query();
+
+
+        ?>
+
+    </main>
+    <!-- .site-main -->
+</div><!-- .content-area -->
+
+<?php get_footer(); ?>
+
+
+________
+страница для вывода 
+             page-post123.php
+отстраници page
+в шаблоне страници указать Template определяется в строке "Template Name :post123"

@@ -1,0 +1,16 @@
+Примечание:tесли что не так поставти  sudo перед командой. (при выполнении команд, но неставти когда зайдете в mysql)
+Для этого необходимо выполнить всего несколько шагов.
+1. Останавливаем mysql.
+service mysql stop
+2. Запускаем mysql следующей командой:
+/usr/bin/mysqld_safe --skip-grant-tables --user=root &
+3. Запускаем клиента mysql
+mysql -u root
+4. Выполняем sql запрос
+UPDATE mysql.user SET Password=PASSWORD(‘newpwd’) WHERE User=’root';
+где newpwd — новый пароль.
+5. Применяем изменения
+FLUSH PRIVILEGES;
+6. Выходим из mysql клиента выполнив в нем команду exit
+7. Перегружаем mysql сервер.
+service mysql restart или service mysql start
